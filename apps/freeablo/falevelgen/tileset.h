@@ -11,88 +11,86 @@
 namespace FALevelGen
 {
 
-    namespace TileSetEnum
+    enum class TileSetEnum : std::int32_t
     {
-        enum TileSetEnum
-        {
-            // this block and the block after it are related
-            // eg insideYWall MUST be equal to yWall + insideXWall
-            xWall,
-            yWall,
-            leftCorner,
-            rightCorner,
-            bottomCorner,
-            topCorner,
+        // this block and the block after it are related
+        // eg insideYWall MUST be equal to yWall + insideXWall
 
-            insideXWall,
-            insideYWall,
-            insideLeftCorner,
-            insideRightCorner,
-            insideBottomCorner,
-            insideTopCorner,
+        xWall,
+        yWall,
+        leftCorner,
+        rightCorner,
+        bottomCorner,
+        topCorner,
 
-            insideXWallEnd,
-            insideXWallEndBack,
-            insideYWallEnd,
-            insideYWallEndBack,
+        insideXWall,
+        insideYWall,
+        insideLeftCorner,
+        insideRightCorner,
+        insideBottomCorner,
+        insideTopCorner,
 
-            outsideXWall,
-            outsideYWall,
-            outsideBottomCorner,
-            outsideRightCorner,
-            outsideLeftCorner,
-            outsideTopCorner,
-            floor,
-            blank,
-            xDoor,
-            yDoor,
+        insideXWallEnd,
+        insideXWallEndBack,
+        insideYWallEnd,
+        insideYWallEndBack,
 
-            joinY,
-            joinYRightCorner,
-            joinRightCorner,
-            joinOutXRightCorner,
-            joinOutX,
-            joinOutXTopCorner,
-            joinTopCorner,
-            joinOutYTopCorner,
-            joinOutY,
-            joinOutYLeftCorner,
-            joinLeftCorner,
-            joinXLeftCorner,
-            joinX,
-            joinXBottomCorner,
-            joinBottomCorner,
-            joinYBottomCorner,
+        outsideXWall,
+        outsideYWall,
+        outsideBottomCorner,
+        outsideRightCorner,
+        outsideLeftCorner,
+        outsideTopCorner,
+        floor,
+        blank,
+        xDoor,
+        yDoor,
 
-            upStairs1,
-            upStairs2,
-            upStairs3,
+        joinY,
+        joinYRightCorner,
+        joinRightCorner,
+        joinOutXRightCorner,
+        joinOutX,
+        joinOutXTopCorner,
+        joinTopCorner,
+        joinOutYTopCorner,
+        joinOutY,
+        joinOutYLeftCorner,
+        joinLeftCorner,
+        joinXLeftCorner,
+        joinX,
+        joinXBottomCorner,
+        joinBottomCorner,
+        joinYBottomCorner,
 
-            upStairs4,
-            upStairs5,
-            upStairs6,
+        upStairs1,
+        upStairs2,
+        upStairs3,
 
-            upStairs7,
-            upStairs8,
-            upStairs9,
+        upStairs4,
+        upStairs5,
+        upStairs6,
 
-            downStairs1,
-            downStairs2,
-            downStairs3,
+        upStairs7,
+        upStairs8,
+        upStairs9,
 
-            downStairs4,
-            downStairs5,
-            downStairs6,
+        downStairs1,
+        downStairs2,
+        downStairs3,
 
-            downStairs7,
-            downStairs8,
-            downStairs9,
+        downStairs4,
+        downStairs5,
+        downStairs6,
 
-            // these two just used internally in levelgen.cpp, not loaded from a file like the rest
-            upStairs,
-            downStairs
-        };
-    }
+        downStairs7,
+        downStairs8,
+        downStairs9,
+
+        // these two just used internally in levelgen.cpp, not loaded from a file like the rest
+        upStairs,
+        downStairs
+    };
 
     class TileSet
     {
@@ -175,7 +173,7 @@ namespace FALevelGen
         int32_t getRandomTile(int32_t tile);
         std::map<int32_t, int32_t> getDoorMap();
 
-        int32_t convert(TileSetEnum::TileSetEnum val);
+        int32_t convert(TileSetEnum val);
 
     private:
         std::map<int32_t, std::pair<std::vector<std::pair<int32_t, int32_t>>, int32_t>> mAlternatives;
